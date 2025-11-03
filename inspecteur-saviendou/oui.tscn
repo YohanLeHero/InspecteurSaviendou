@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ou4mxrxevjur"]
+
+[ext_resource type="Script" uid="uid://dpgq2kv0jqk52" path="res://Oui.gd" id="1_xq6um"]
+[ext_resource type="Texture2D" uid="uid://dghchw271jyf8" path="res://Assets/PeniAsset.png" id="2_4r1rx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_totqq"]
+radius = 68.52
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_xq6um")
+speed = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(428, 324)
+shape = SubResource("CircleShape2D_totqq")
+
+[node name="PeniAsset" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(436.99997, 328)
+scale = Vector2(0.2425, 0.2911111)
+texture = ExtResource("2_4r1rx")

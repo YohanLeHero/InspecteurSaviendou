@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bm7rc8mby1qey"]
+[gd_scene load_steps=21 format=3 uid="uid://bm7rc8mby1qey"]
 
 [ext_resource type="Texture2D" uid="uid://20mwa134lwxa" path="res://tileset.png" id="1_l8xx7"]
 [ext_resource type="Script" uid="uid://cplsys5pvlros" path="res://Scripts/game_manager.gd" id="1_yqsvm"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cn1jg6fq52dy0" path="res://asset/Gros bong.png" id="10_6v7s6"]
 [ext_resource type="PackedScene" uid="uid://6x1hn4igyiys" path="res://Scene/recipe.tscn" id="11_yy1rr"]
 [ext_resource type="Script" uid="uid://cv1qmrxo82pk3" path="res://Scripts/dialogue_box.gd" id="12_yy1rr"]
-[ext_resource type="Texture2D" uid="uid://cawt5g8sgef77" path="res://asset/continueArroww.png" id="13_oftlh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_diarp"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -175,7 +174,7 @@ script = ExtResource("12_yy1rr")
 
 [node name="Label" type="Label" parent="DialogueBox"]
 layout_mode = 0
-offset_right = 708.0
+offset_right = 845.0
 offset_bottom = 163.0
 label_settings = SubResource("LabelSettings_oftlh")
 autowrap_mode = 3
@@ -184,11 +183,10 @@ clip_text = true
 
 [node name="Button" type="Button" parent="DialogueBox"]
 layout_mode = 0
-offset_left = 709.0
-offset_top = 18.0
-offset_right = 845.0
-offset_bottom = 154.0
-icon = ExtResource("13_oftlh")
+offset_left = 545.0
+offset_top = 99.0
+offset_right = 553.0
+offset_bottom = 107.0
 
 [connection signal="sendLastName" from="Interaction_MNG" to="player" method="_on_interaction_mng_send_last_name"]
 [connection signal="Dialogue" from="player" to="DialogueBox" method="writeDialogue"]

@@ -8,6 +8,7 @@ size = Vector2(38, 34)
 [node name="Item_Temp" type="StaticBody2D" groups=["Items"]]
 input_pickable = true
 script = ExtResource("1_dddlk")
+description = Array[String]([""])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lrqau")

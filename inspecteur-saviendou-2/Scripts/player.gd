@@ -10,6 +10,7 @@ const speed = 100.0
 var node_clicked : Node2D
 
 signal storeInv(item : Node2D)
+signal Dialogue(descrition : Array[String])
 
 
 func _input(event: InputEvent) -> void:
@@ -38,6 +39,8 @@ func _on_item_box_body_entered(body: Node2D) -> void:
 	print("oui")
 	if body.is_in_group("Items") and node_clicked == body: 
 		storeInv.emit(node_clicked)
+		Dialogue.emit(body.get_description())
+		nav_agent.set_target_position(self.position)
 		body.visible = false
 
 func _on_interaction_mng_send_last_name(node: Node2D) -> void:

@@ -1,0 +1,31 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1769008050
+tileset.png::CompressedTexture2D::1947476154933793038::1767621565::1767621863::1::::<><><>0<>0<>37418ec5ccc3f87e42711374663f67ea<>res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex::
+::res://asset/::1768922403
+CraftingSprite.png::CompressedTexture2D::2248700660587425848::1768398726::1768398726::1::::<><><>0<>0<>33c123c126d49c38decf61f07c112f36<>res://.godot/imported/CraftingSprite.png-4f3cdf87069b108661a7fc10a225b72b.ctex::
+gray.png::CompressedTexture2D::4608632645524037094::1768408128::1768408129::1::::<><><>0<>0<>7e962383328759377a6d4ac7c507903c<>res://.godot/imported/gray.png-5dd30f71baac8de466d107c6f598c21c.ctex::
+Gros bong.png::CompressedTexture2D::5739528960700503757::1767622201::1768398711::1::::<><><>0<>0<>430f3a0ab9dc5ab8f05a21b5be35914f<>res://.godot/imported/Gros bong.png-bf2ad4596ef5b62d1b22523a391420da.ctex::
+icon.svg::CompressedTexture2D::5765707098433910628::1767621390::1768398711::1::::<><><>0<>0<>8e34e340611b2241900a5177260a48c6<>res://.godot/imported/icon.svg-635c9cd9560944100972280930a50328.ctex::
+PeniAsset.png::CompressedTexture2D::3064142855375787117::1768922402::1768922403::1::::<><><>0<>0<>7ec3ac928d2fa3a1739846352fcd1c9f<>res://.godot/imported/PeniAsset.png-28ac04224585ae35d5b0db163cd322c5.ctex::
+::res://Scene/::1769007780
+crafting.gd::GDScript::2861883813096282852::1768921592::0::1::::<>Node2D<><>0<>0<><>::
+crafting.tscn::PackedScene::8280782994738981679::1768923981::0::1::::<><><>0<>0<><>::uid://7bj1hw1hcb41::::res://asset/CraftingSprite.png<>uid://wjxl4nj6t8lk::::res://Scripts/craft_menu.gd
+head_tracking_manager.tscn::PackedScene::1746516851706592236::1768407673::0::1::::<><><>0<>0<><>::uid://7yxdrmvco22n::::res://Scripts/head_tracking_manager.gd<>uid://coe7maxganewa::::res://asset/icon.svg
+inventory.tscn::PackedScene::6885400184694624457::1768407673::0::1::::<><><>0<>0<><>::uid://cur26xoglrve3::::res://Scripts/inventory.gd
+item_temp.tscn::PackedScene::886199889932407574::1769007444::0::1::::<><><>0<>0<><>::uid://b34e8i2dgn6lq::::res://Scripts/Item.gd
+path_finding.tscn::PackedScene::3295784407830997968::1769007780::0::1::::<><><>0<>0<><>::uid://20mwa134lwxa::::res://tileset.png<>uid://cplsys5pvlros::::res://Scripts/game_manager.gd<>uid://dbkucqhltvrki::::res://Scripts/player.gd<>uid://coe7maxganewa::::res://asset/icon.svg<>uid://dp534h1as4lco::::res://Scripts/interaction_mng.gd<>uid://bjwj8q3m75xir::::res://asset/PeniAsset.png<>uid://c5dlsgsqpyor6::::res://Scene/inventory.tscn<>uid://dp8jjyyk1jnvj::::res://Scene/crafting.tscn<>uid://mvjt2u5x85da::::res://Scene/item_temp.tscn<>uid://cn1jg6fq52dy0::::res://asset/Gros bong.png<>uid://6x1hn4igyiys::::res://Scene/recipe.tscn
+recipe.tscn::PackedScene::2224926711466975810::1768923861::0::1::::<><><>0<>0<><>::uid://l1exumr28anc::::res://Scripts/recipe.gd
+::res://Scripts/::1769007731
+character_body_2d.gd::GDScript::2246132458334961718::1767732750::0::1::::<>CharacterBody2D<><>0<>0<><>::
+craft_button.gd::GDScript::1420680148449464593::1768400427::0::1::::<>Sprite2D<><>0<>0<><>::
+craft_menu.gd::GDScript::1564151638100575084::1768925082::0::1::::<>HBoxContainer<><>0<>0<><>::
+cursor_mng.gd::GDScript::4333045392320162045::1767882785::0::1::::<>Node2D<><>0<>0<><>::
+game_manager.gd::GDScript::5849518934649341242::1768924510::0::1::::<>Node2D<><>0<>0<><>::
+head_tracking_manager.gd::GDScript::2296990823121818687::1767781050::0::1::::<>Node2D<><>0<>0<><>::
+iii.gd::GDScript::2252673423080012917::1768407020::0::1::::<>Button<><>0<>0<><>::
+interaction_mng.gd::GDScript::8275778309945857670::1769007543::0::1::::<>Node<><>0<>0<><>::
+inventory.gd::GDScript::6213408610333932272::1769007731::0::1::::<>Node2D<><>0<>0<><>::
+Item.gd::GDScript::4411877521637060586::1768924808::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript::7251313435414331032::1769007570::0::1::::<>CharacterBody2D<><>0<>0<><>::
+recipe.gd::GDScript::826036112669225492::1768918936::0::1::::<>Node2D<><>0<>0<><>::
+sprite_2d.gd::GDScript::3584659103523056542::1767728554::0::1::::<>Sprite2D<><>0<>0<><>::

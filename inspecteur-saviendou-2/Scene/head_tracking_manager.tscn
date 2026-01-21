@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://y5a43iqhftw3"]
+
+[ext_resource type="Script" uid="uid://7yxdrmvco22n" path="res://Scripts/head_tracking_manager.gd" id="1_ci72v"]
+[ext_resource type="Texture2D" uid="uid://coe7maxganewa" path="res://asset/icon.svg" id="1_d2y32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci72v"]
+size = Vector2(124, 124)
+
+[node name="HeadTrackingManager" type="Node2D"]
+position = Vector2(4, 0)
+script = ExtResource("1_ci72v")
+
+[node name="TrackerRect" type="Sprite2D" parent="."]
+position = Vector2(577, 311)
+texture = ExtResource("1_d2y32")
+
+[node name="Area2D" type="Area2D" parent="TrackerRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrackerRect/Area2D"]
+shape = SubResource("RectangleShape2D_ci72v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 320)
+
+[node name="obj" type="Sprite2D" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 427.0
+offset_bottom = 640.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2

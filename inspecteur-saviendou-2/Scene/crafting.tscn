@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp8jjyyk1jnvj"]
+
+[ext_resource type="Texture2D" uid="uid://7bj1hw1hcb41" path="res://asset/CraftingSprite.png" id="4_n0t6q"]
+[ext_resource type="Script" uid="uid://wjxl4nj6t8lk" path="res://Scripts/craft_menu.gd" id="7_ygo5c"]
+
+[node name="Crafting" type="Node2D"]
+
+[node name="craftMenu" type="HBoxContainer" parent="."]
+offset_left = 186.0
+offset_top = 266.0
+offset_right = 1218.0
+offset_bottom = 521.0
+scale = Vector2(0.53543895, 0.5247077)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("7_ygo5c")
+
+[node name="Slot1" type="Button" parent="craftMenu"]
+custom_minimum_size = Vector2(255, 255)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot2" type="Button" parent="craftMenu"]
+custom_minimum_size = Vector2(255, 255)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slot3" type="Button" parent="craftMenu"]
+custom_minimum_size = Vector2(255, 255)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Result" type="Button" parent="craftMenu"]
+custom_minimum_size = Vector2(255, 255)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1034.0
+offset_top = 490.0
+offset_right = 1147.0
+offset_bottom = 609.0
+icon = ExtResource("4_n0t6q")
+expand_icon = true
+
+[node name="RecipesList" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="craftMenu/Slot1" to="craftMenu" method="_on_slot_1_pressed"]
+[connection signal="pressed" from="craftMenu/Slot2" to="craftMenu" method="_on_slot_2_pressed"]
+[connection signal="pressed" from="craftMenu/Slot3" to="craftMenu" method="_on_slot_3_pressed"]
+[connection signal="pressed" from="craftMenu/Result" to="craftMenu" method="_on_result_pressed"]
+[connection signal="pressed" from="Button" to="craftMenu" method="_on_button_pressed"]

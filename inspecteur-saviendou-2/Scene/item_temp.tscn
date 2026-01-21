@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://mvjt2u5x85da"]
+
+[ext_resource type="Script" uid="uid://b34e8i2dgn6lq" path="res://Scripts/Item.gd" id="1_dddlk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrqau"]
+size = Vector2(38, 34)
+
+[node name="Item_Temp" type="StaticBody2D" groups=["Items"]]
+input_pickable = true
+script = ExtResource("1_dddlk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lrqau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.135, 2.135)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+debug_color = Color(0.7264744, 0.35765067, 0.80079156, 0.41960785)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

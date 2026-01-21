@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dlsgsqpyor6"]
+
+[ext_resource type="Script" uid="uid://cur26xoglrve3" path="res://inventory.gd" id="1_pohso"]
+[ext_resource type="Texture2D" uid="uid://cn1jg6fq52dy0" path="res://Gros bong.png" id="2_psafj"]
+[ext_resource type="PackedScene" uid="uid://mvjt2u5x85da" path="res://item_temp.tscn" id="3_5tt2m"]
+
+[node name="Inventory" type="Node2D" node_paths=PackedStringArray("ui_Inventory")]
+script = ExtResource("1_pohso")
+ui_Inventory = NodePath("ItemList")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_right = 144.0
+offset_bottom = 263.0
+
+[node name="InvItems" type="Node2D" parent="."]
+
+[node name="EnormusePenus" parent="InvItems" instance=ExtResource("3_5tt2m")]
+position = Vector2(373, 174.00002)
+scale = Vector2(0.49159127, 0.4868218)
+
+[node name="Sprite2D" parent="InvItems/EnormusePenus" index="1"]
+scale = Vector2(2.135, 2.176482)
+texture = ExtResource("2_psafj")
+
+[connection signal="debugInv" from="InvItems/EnormusePenus" to="." method="_on_enormuse_penus_debug_inv"]
+
+[editable path="InvItems/EnormusePenus"]

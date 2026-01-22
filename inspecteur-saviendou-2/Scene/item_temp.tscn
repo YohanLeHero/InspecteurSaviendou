@@ -6,6 +6,8 @@
 size = Vector2(38, 34)
 
 [node name="Item_Temp" type="StaticBody2D" groups=["Items"]]
+collision_layer = 2
+collision_mask = 3
 input_pickable = true
 script = ExtResource("1_dddlk")
 description = Array[String]([""])

@@ -6,7 +6,6 @@ var inventory : Array
 
 func storeItem(item : Node2D):
 	inventory.push_back(item)
-	print(inventory)
 	ui_Inventory.add_item("", item.get_texture())
 
 

@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		return
 	var current_agent_position: Vector2 = global_position
-	#print(dir)
 	self.velocity = current_agent_position.direction_to(nav_agent.get_next_path_position()).normalized() * speed 
 	move_and_slide()
 	
@@ -36,13 +35,14 @@ func makePath(clickPos) -> void:
 
 
 func _on_item_box_body_entered(body: Node2D) -> void:
-	print("oui")
 	if body.is_in_group("Items") and node_clicked == body: 
 		storeInv.emit(node_clicked)
 		Dialogue.emit(body.get_description())
 		nav_agent.set_target_position(self.position)
 		body.visible = false
+	elif body.is_in_group("Pnj") and node_clicked == body:
+		Dialogue.emit(body.get_CurrentDialog())
+		nav_agent.set_target_position(self.position)
 
 func _on_interaction_mng_send_last_name(node: Node2D) -> void:
 	node_clicked = node
-	print(node.name)

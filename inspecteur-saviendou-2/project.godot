@@ -18,6 +18,7 @@ config/icon="res://asset/icon.svg"
 [global_group]
 
 Items="pickable items"
+Pnj=""
 
 [input]
 

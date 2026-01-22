@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://bm7rc8mby1qey"]
+[gd_scene load_steps=23 format=3 uid="uid://bm7rc8mby1qey"]
 
 [ext_resource type="Texture2D" uid="uid://20mwa134lwxa" path="res://tileset.png" id="1_l8xx7"]
-[ext_resource type="Script" uid="uid://cplsys5pvlros" path="res://Scripts/game_manager.gd" id="1_yqsvm"]
 [ext_resource type="Script" uid="uid://dbkucqhltvrki" path="res://Scripts/player.gd" id="2_3oia6"]
 [ext_resource type="Texture2D" uid="uid://coe7maxganewa" path="res://asset/icon.svg" id="2_diarp"]
 [ext_resource type="Script" uid="uid://dp534h1as4lco" path="res://Scripts/interaction_mng.gd" id="7_cuu4d"]
@@ -13,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://6x1hn4igyiys" path="res://Scene/recipe.tscn" id="11_yy1rr"]
 [ext_resource type="Script" uid="uid://cv1qmrxo82pk3" path="res://Scripts/dialogue_box.gd" id="12_yy1rr"]
 [ext_resource type="Texture2D" uid="uid://cawt5g8sgef77" path="res://asset/continueArroww.png" id="13_oftlh"]
+[ext_resource type="PackedScene" uid="uid://p3p4k8h15edp" path="res://Scene/pnj_tmp.tscn" id="14_0ekb7"]
+[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scene/time_line.gd" id="15_aw0ne"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_diarp"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -33,7 +34,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_3oia6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6chti"]
-radius = 7.421315
+radius = 5.5398374
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5lrc"]
 radius = 12.4
@@ -52,10 +53,6 @@ position = Vector2(-281, -118)
 
 [node name="Interaction_MNG" type="Node" parent="."]
 script = ExtResource("7_cuu4d")
-
-[node name="GameManager" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_yqsvm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -226.0
@@ -92,7 +89,6 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_diarp")
 
 [node name="itemBox" type="Area2D" parent="player"]
-visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/itemBox"]
@@ -114,9 +110,7 @@ shape = SubResource("RectangleShape2D_oftlh")
 
 [node name="GroBong" parent="Items" instance=ExtResource("9_pb7wt")]
 position = Vector2(153, 237)
-collision_layer = 2
-collision_mask = 3
-description = Array[String](["prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout prout ", "prout"])
+description = Array[String]([])
 
 [node name="Sprite2D" parent="Items/GroBong" index="1"]
 texture = ExtResource("10_6v7s6")
@@ -126,8 +120,6 @@ shape = SubResource("RectangleShape2D_7cpln")
 
 [node name="GroBong2" parent="Items" instance=ExtResource("9_pb7wt")]
 position = Vector2(264, 363)
-collision_layer = 2
-collision_mask = 3
 description = Array[String]([])
 
 [node name="Sprite2D" parent="Items/GroBong2" index="1"]
@@ -138,8 +130,6 @@ shape = SubResource("RectangleShape2D_7cpln")
 
 [node name="GroBong3" parent="Items" instance=ExtResource("9_pb7wt")]
 position = Vector2(328, 235)
-collision_layer = 2
-collision_mask = 3
 description = Array[String]([])
 
 [node name="Sprite2D" parent="Items/GroBong3" index="1"]
@@ -155,9 +145,22 @@ allow_reselect = true
 fixed_icon_size = Vector2i(64, 64)
 
 [node name="Crafting" parent="." instance=ExtResource("9_6chti")]
+rotation = 1.5352339
 
 [node name="craftMenu" parent="Crafting" index="0"]
 visible = false
+offset_left = 229.22714
+offset_top = -142.94022
+offset_right = 1261.2272
+offset_bottom = 112.059784
+rotation = -1.5476286
+
+[node name="Button" parent="Crafting" index="1"]
+offset_left = 528.4883
+offset_top = -1016.8526
+offset_right = 641.4883
+offset_bottom = -897.8526
+rotation = -1.5409222
 
 [node name="Recipe" parent="Crafting/RecipesList" index="0" node_paths=PackedStringArray("Item1", "Item2", "Item3", "Result") instance=ExtResource("11_yy1rr")]
 Item1 = NodePath("../../../Items/GroBong")
@@ -167,6 +170,7 @@ Result = NodePath("../../../Items/OFSI/Item_Temp")
 
 [node name="DialogueBox" type="Panel" parent="."]
 process_mode = 2
+visible = false
 offset_left = 2.0
 offset_top = 483.0
 offset_right = 848.0
@@ -190,6 +194,23 @@ offset_right = 845.0
 offset_bottom = 154.0
 icon = ExtResource("13_oftlh")
 
+[node name="Pnj" type="Node2D" parent="." groups=["Pnj"]]
+
+[node name="pnj_tmp" parent="Pnj" node_paths=PackedStringArray("questItem") instance=ExtResource("14_0ekb7")]
+position = Vector2(496, 104)
+questItem = [NodePath("../../Items/GroBong3"), NodePath("../../Items/OFSI/Item_Temp")]
+
+[node name="TimeLine" parent="Pnj/pnj_tmp/Dialogs" index="0"]
+dialog = Array[String](["oui oui"])
+
+[node name="TimeLine2" type="Node2D" parent="Pnj/pnj_tmp/Dialogs" index="1" groups=["Pnj"]]
+script = ExtResource("15_aw0ne")
+dialog = Array[String](["nono"])
+
+[node name="TimeLine3" type="Node2D" parent="Pnj/pnj_tmp/Dialogs" index="2" groups=["Pnj"]]
+script = ExtResource("15_aw0ne")
+dialog = Array[String](["ouioui"])
+
 [connection signal="sendLastName" from="Interaction_MNG" to="player" method="_on_interaction_mng_send_last_name"]
 [connection signal="Dialogue" from="player" to="DialogueBox" method="writeDialogue"]
 [connection signal="storeInv" from="player" to="Inventory" method="storeItem"]
@@ -198,8 +219,11 @@ icon = ExtResource("13_oftlh")
 [connection signal="isClicked" from="Items/GroBong2" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
 [connection signal="isClicked" from="Items/GroBong3" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
 [connection signal="item_activated" from="Inventory/ItemList" to="Crafting/craftMenu" method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="Inventory/ItemList" to="Interaction_MNG" method="_on_item_list_item_selected"]
 [connection signal="Crafted" from="Crafting/craftMenu" to="Inventory" method="_on_craft_menu_crafted"]
 [connection signal="gui_input" from="DialogueBox" to="DialogueBox" method="_on_gui_input"]
+[connection signal="isClicked" from="Pnj/pnj_tmp" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
+[connection signal="timeLineAdvenced" from="Pnj/pnj_tmp" to="DialogueBox" method="writeDialogue"]
 
 [editable path="Items/OFSI/Item_Temp"]
 [editable path="Items/GroBong"]
@@ -207,3 +231,4 @@ icon = ExtResource("13_oftlh")
 [editable path="Items/GroBong3"]
 [editable path="Inventory"]
 [editable path="Crafting"]
+[editable path="Pnj/pnj_tmp"]

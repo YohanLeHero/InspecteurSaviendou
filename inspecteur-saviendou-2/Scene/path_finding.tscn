@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bm7rc8mby1qey"]
+[gd_scene load_steps=30 format=3 uid="uid://bm7rc8mby1qey"]
 
 [ext_resource type="Texture2D" uid="uid://20mwa134lwxa" path="res://tileset.png" id="1_l8xx7"]
 [ext_resource type="Script" uid="uid://cplsys5pvlros" path="res://Scripts/game_manager.gd" id="1_yqsvm"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://6x1hn4igyiys" path="res://Scene/recipe.tscn" id="11_yy1rr"]
 [ext_resource type="Script" uid="uid://b2gwyup50h4ui" path="res://Scripts/son_intro.gd" id="12_oftlh"]
 [ext_resource type="AudioStream" uid="uid://b4x5rkm2r8eng" path="res://audio/intro_tuto.wav" id="13_0ekb7"]
+[ext_resource type="AudioStream" uid="uid://cdg04jxwgqtc7" path="res://audio/interraction_opinel.wav" id="16_1kpsw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_diarp"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -136,6 +137,9 @@ texture = ExtResource("10_6v7s6")
 
 [node name="CollisionShape2D" parent="Items/GroBong/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_7cpln")
+
+[node name="interaction" parent="Items/GroBong" index="3"]
+stream = ExtResource("16_1kpsw")
 
 [node name="GroBong2" parent="Items" instance=ExtResource("9_pb7wt")]
 position = Vector2(264, 363)

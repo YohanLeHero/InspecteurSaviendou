@@ -3,24 +3,14 @@ extends CharacterBody2D
 
 const speed = 100.0
 
-@export var footstep_sounds: Array[AudioStream] = []
-
 @export var target: Node2D
 @export var inventory : Node2D
 @export var cursor : Node2D
 @onready var nav_agent := $CollisionShape2D/NavigationAgent2D as NavigationAgent2D
-@onready var footstep_player := $FootstepPlayer as AudioStreamPlayer2D
-@onready var footstep_timer := $FootstepTimer as Timer
-
-var is_walking := false
 var node_clicked : Node2D
 
 signal storeInv(item : Node2D)
 signal Dialogue(descrition : Array[String])
-
-func _ready() -> void:
-	footstep_timer.timeout.connect(_play_footstep)
-	randomize()
 
 
 func _input(event: InputEvent) -> void:
@@ -34,37 +24,11 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
-		stop_footsteps()
 		return
 	var current_agent_position: Vector2 = global_position
 	self.velocity = current_agent_position.direction_to(nav_agent.get_next_path_position()).normalized() * speed 
 	move_and_slide()
-	start_footsteps()
-
-# --------------------
-# FOOTSTEPS
-# --------------------
-
-func start_footsteps() -> void:
-	if not is_walking:
-		is_walking = true
-		footstep_timer.start()
-
-func stop_footsteps() -> void:
-	if is_walking:
-		is_walking = false
-		footstep_timer.stop()
-
-func _play_footstep() -> void:
-	if not is_walking or footstep_sounds.is_empty():
-		return
-
-	footstep_player.stream = footstep_sounds.pick_random()
-	footstep_player.pitch_scale = randf_range(0.95, 1.05) # naturel
-	footstep_player.play()
-
-# --------------------
-
+	
 func makePath(clickPos) -> void:
 	nav_agent.set_target_position(to_global(clickPos))
 	

@@ -8,7 +8,6 @@ func storeItem(item : Node2D):
 	if item.interaction_sound:
 		item.interaction_sound.play()
 	inventory.push_back(item)
-	print(inventory)
 	ui_Inventory.add_item("", item.get_texture())
 	await item.interaction_sound.finished
 

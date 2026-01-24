@@ -15,9 +15,15 @@ run/main_scene="uid://bm7rc8mby1qey"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://asset/icon.svg"
 
+[autoload]
+
+Globals="*res://headTracking/Script/Globals.gd"
+save="*res://save.gd"
+
 [global_group]
 
 Items="pickable items"
+Pnj=""
 
 [input]
 

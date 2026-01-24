@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5dlsgsqpyor6"]
+
+[ext_resource type="Script" uid="uid://cur26xoglrve3" path="res://Scripts/inventory.gd" id="1_pohso"]
+
+[node name="Inventory" type="Node2D" node_paths=PackedStringArray("ui_Inventory")]
+script = ExtResource("1_pohso")
+ui_Inventory = NodePath("ItemList")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 851.0
+offset_top = 3.0
+offset_right = 1155.0
+offset_bottom = 489.0
+max_columns = 2
+
+[node name="InvItems" type="Node2D" parent="."]

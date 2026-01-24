@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6x1hn4igyiys"]
+
+[ext_resource type="Script" uid="uid://l1exumr28anc" path="res://Scripts/recipe.gd" id="1_bk0rr"]
+
+[node name="Recipe" type="Node2D" node_paths=PackedStringArray("Item1", "Item2", "Result")]
+script = ExtResource("1_bk0rr")
+Item1 = NodePath("")
+Item2 = NodePath("")
+Result = NodePath("")

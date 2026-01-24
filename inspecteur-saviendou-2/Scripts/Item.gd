@@ -6,6 +6,8 @@ signal isClicked(node : Node2D)
 signal debugInv(item : Node2D)
 signal _click_cursor(area : Area2D, event : InputEvent)
 
+@onready var interaction_sound := $interraction
+
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Click"):

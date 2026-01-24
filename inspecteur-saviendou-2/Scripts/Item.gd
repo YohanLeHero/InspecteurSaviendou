@@ -6,6 +6,8 @@ signal isClicked(node : Node2D)
 signal debugInv(item : Node2D)
 signal _click_cursor(area : Area2D, event : InputEvent)
 
+@onready var interaction_sound := $interaction
+
 @export_multiline var description : Array[String]
 
 

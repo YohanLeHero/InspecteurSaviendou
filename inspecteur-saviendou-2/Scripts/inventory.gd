@@ -5,8 +5,11 @@ var inventory : Array
 @export var ui_Inventory : ItemList
 
 func storeItem(item : Node2D):
+	if item.interaction_sound:
+		item.interaction_sound.play()
 	inventory.push_back(item)
 	ui_Inventory.add_item("", item.get_texture())
+	await item.interaction_sound.finished
 
 
 func getInvetory():

@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://diqmiihreyy7y"]
+
+[ext_resource type="Script" uid="uid://bnbkbm5hlqvor" path="res://Scripts/mainmenu.gd" id="1_vowho"]
+[ext_resource type="Texture2D" uid="uid://cgaxb3x7dt1mf" path="res://asset/placeholder-1-1.png" id="2_rv1bs"]
+[ext_resource type="PackedScene" uid="uid://dgxiuywgbrut2" path="res://headTracking/Scene/node_2d.tscn" id="3_rv1bs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2nv2"]
+texture = ExtResource("2_rv1bs")
+modulate_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmhrf"]
+bg_color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmhrf"]
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vowho")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d2nv2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.5
+offset_top = -87.0
+offset_right = 404.5
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmhrf")
+text = "start game"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmhrf")
+text = "exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = -252.0
+offset_right = 236.5
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Inspecteur saviendou "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" parent="." instance=ExtResource("3_rv1bs")]
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]

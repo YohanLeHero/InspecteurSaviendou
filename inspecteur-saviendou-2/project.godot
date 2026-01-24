@@ -1,3 +1,11 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
@@ -7,9 +15,15 @@ run/main_scene="uid://bm7rc8mby1qey"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://asset/icon.svg"
 
+[autoload]
+
+Globals="*res://headTracking/Script/Globals.gd"
+save="*res://save.gd"
+
 [global_group]
 
 Items="pickable items"
+Pnj=""
 
 [input]
 

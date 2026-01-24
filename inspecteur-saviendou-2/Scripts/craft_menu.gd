@@ -11,7 +11,6 @@ func _on_button_pressed() -> void:
 func _on_item_list_item_selected(index: int) -> void:
 	if is_visible_in_tree():
 		var invetory = $"../../Inventory".getInvetory()
-		print(invetory)
 		if craftSlot[0] == null:
 			for i in range(craftSlot.size()):
 				if invetory[index] == craftSlot[i]:
@@ -40,11 +39,9 @@ func craft():
 				if recipes[i].getItem3() == craftSlot[0] or recipes[i].getItem3() == craftSlot[1] or recipes[i].getItem3() == craftSlot[2]:
 					craftSlot[3] = recipes[i].getResult()
 					self.get_node("Result").set_button_icon(recipes[i].getResult().get_texture())
-					print(craftSlot)
 					return
 		craftSlot[3] = null
 		self.get_node("Result").set_button_icon(null)
-		print(craftSlot)
 
 func _on_slot_1_pressed() -> void:
 	if self.get_node("Slot1").get_button_icon() != null:

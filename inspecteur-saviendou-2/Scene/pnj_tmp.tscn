@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://p3p4k8h15edp"]
+
+[ext_resource type="Script" uid="uid://bb30uoia2lynx" path="res://Scripts/pnj_tmp.gd" id="1_c45fg"]
+[ext_resource type="Texture2D" uid="uid://dduryx5yyw5bi" path="res://asset/pnjAsset.png" id="2_xycbf"]
+[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scripts/time_line.gd" id="3_xycbf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4as3"]
+radius = 71.34424
+
+[node name="pnj_tmp" type="CharacterBody2D" groups=["Pnj"]]
+input_pickable = true
+script = ExtResource("1_c45fg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xycbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k4as3")
+
+[node name="Dialogs" type="Node2D" parent="."]
+
+[node name="TimeLine" type="Node2D" parent="Dialogs" groups=["Pnj"]]
+script = ExtResource("3_xycbf")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

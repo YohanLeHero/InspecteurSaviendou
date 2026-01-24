@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgxiuywgbrut2"]
+
+[ext_resource type="Script" uid="uid://bymw78wrpdb5t" path="res://head_tracking_manager.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://brw23quc7pw8j" path="res://menu_panel.gd" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cruxvyh2ropu4" path="res://cogweel.svg" id="2_4d7sh"]
+[ext_resource type="Script" uid="uid://bw4do0vprjv4b" path="res://button.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://bsuxc70dvjoyg" path="res://souris.svg" id="3_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://810m56llst3p" path="res://manette.svg" id="4_hqns4"]
+[ext_resource type="Texture2D" uid="uid://bdk6igvv6bqtg" path="res://tete.svg" id="5_hqns4"]
+[ext_resource type="Texture2D" uid="uid://mdqh178wvexm" path="res://disketsvg.svg" id="6_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://c70vjpkuckqay" path="res://loadsave.svg" id="7_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://db62yvt8xw3c4" path="res://poubelle.svg" id="8_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://ds30swneuxs2j" path="res://full screen.svg" id="11_d2bti"]
+[ext_resource type="Texture2D" uid="uid://botlgpsksk5bi" path="res://ImageToStl.com_cross.svg" id="11_hqns4"]
+[ext_resource type="Texture2D" uid="uid://rprl7x1oimdm" path="res://off.svg" id="12_0h7mo"]
+[ext_resource type="Script" uid="uid://dopsq2m25apo" path="res://Quitter.gd" id="12_x0ka3"]
+[ext_resource type="Script" uid="uid://cmlj4v1oxco65" path="res://fullscreen.gd" id="13_nr8wp"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-6, 29)
+script = ExtResource("1_0e48y")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 638.0
+offset_top = -3.0
+offset_right = 1149.0
+offset_bottom = 653.0
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 37.0
+offset_right = 375.0
+offset_bottom = 501.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("2_0hol4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Souris" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+souris
+"
+icon = ExtResource("3_ir8iy")
+
+[node name="Manette" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+manette"
+icon = ExtResource("4_hqns4")
+
+[node name="HeadTracking" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+headtracking"
+icon = ExtResource("5_hqns4")
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+ratio = 1.3165
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BottomButtons" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "save set."
+icon = ExtResource("6_0h7mo")
+
+[node name="Load" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "load set."
+icon = ExtResource("7_nr8wp")
+
+[node name="Reset" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "reset set."
+icon = ExtResource("8_x0ka3")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 357.0
+offset_right = 120.0
+offset_bottom = 576.0
+
+[node name="Quitter" type="Button" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "
+Quitter
+
+"
+icon = ExtResource("12_0h7mo")
+script = ExtResource("12_x0ka3")
+
+[node name="Fullscreen" type="Button" parent="."]
+offset_left = 83.0
+offset_top = 700.0
+offset_right = 198.0
+offset_bottom = 800.0
+text = "
+Fullscreen
+
+"
+icon = ExtResource("11_d2bti")
+script = ExtResource("13_nr8wp")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 533.0
+offset_right = 201.0
+offset_bottom = 619.0
+button_mask = 7
+text = "paramettre"
+icon = ExtResource("2_4d7sh")
+script = ExtResource("3_epypp")
+
+[node name="TrackerRect" type="Sprite2D" parent="."]
+position = Vector2(496, 307)
+texture = ExtResource("11_hqns4")

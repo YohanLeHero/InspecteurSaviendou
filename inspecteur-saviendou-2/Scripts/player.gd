@@ -16,10 +16,11 @@ signal Dialogue(descrition : Array[String])
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Click"):
 		#makePath(to_local(cursor.tracker_rect.position)
-		makePath(get_local_mouse_position())
+		#makePath($"../Node2D".get_pos())
 		
 		node_clicked = null
-	#makePath(get_local_mouse_position())
+		print(get_local_mouse_position())
+		makePath(to_local($"../Node2D".get_pos()))
 
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():

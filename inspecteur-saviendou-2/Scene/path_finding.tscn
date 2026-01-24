@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bm7rc8mby1qey"]
+[gd_scene load_steps=28 format=3 uid="uid://bm7rc8mby1qey"]
 
+[ext_resource type="PackedScene" uid="uid://dupo1eyoe768f" path="res://Scene/save_mng.tscn" id="1_2laci"]
 [ext_resource type="Texture2D" uid="uid://20mwa134lwxa" path="res://tileset.png" id="1_l8xx7"]
 [ext_resource type="Script" uid="uid://dbkucqhltvrki" path="res://Scripts/player.gd" id="2_3oia6"]
 [ext_resource type="Texture2D" uid="uid://coe7maxganewa" path="res://asset/icon.svg" id="2_diarp"]
@@ -9,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dp8jjyyk1jnvj" path="res://Scene/crafting.tscn" id="9_6chti"]
 [ext_resource type="PackedScene" uid="uid://mvjt2u5x85da" path="res://Scene/item_temp.tscn" id="9_pb7wt"]
 [ext_resource type="Texture2D" uid="uid://cn1jg6fq52dy0" path="res://asset/Gros bong.png" id="10_6v7s6"]
-[ext_resource type="PackedScene" uid="uid://6x1hn4igyiys" path="res://Scene/recipe.tscn" id="11_yy1rr"]
 [ext_resource type="Script" uid="uid://cv1qmrxo82pk3" path="res://Scripts/dialogue_box.gd" id="12_yy1rr"]
 [ext_resource type="Texture2D" uid="uid://cawt5g8sgef77" path="res://asset/continueArroww.png" id="13_oftlh"]
 [ext_resource type="PackedScene" uid="uid://p3p4k8h15edp" path="res://Scene/pnj_tmp.tscn" id="14_0ekb7"]
-[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scene/time_line.gd" id="15_aw0ne"]
+[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scripts/time_line.gd" id="14_aw0ne"]
+[ext_resource type="PackedScene" uid="uid://dgxiuywgbrut2" path="res://headTracking/Scene/node_2d.tscn" id="15_aw0ne"]
+[ext_resource type="PackedScene" uid="uid://6x1hn4igyiys" path="res://Scene/recipe.tscn" id="16_2laci"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_diarp"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -41,12 +43,23 @@ radius = 12.4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oftlh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw0ne"]
+size = Vector2(56, 52)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cpln"]
+size = Vector2(56, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2laci"]
+size = Vector2(56, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aexw"]
 size = Vector2(56, 52)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlh"]
 
 [node name="pathFinding" type="Node2D"]
+
+[node name="SaveMng" parent="." instance=ExtResource("1_2laci")]
 
 [node name="Cursor_MNG" type="Node2D" parent="."]
 position = Vector2(-281, -118)
@@ -55,10 +68,10 @@ position = Vector2(-281, -118)
 script = ExtResource("7_cuu4d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -226.0
-offset_top = -48.0
-offset_right = 1278.0
-offset_bottom = 837.0
+offset_left = -231.0
+offset_top = -53.0
+offset_right = 1273.0
+offset_bottom = 832.0
 mouse_filter = 2
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -110,7 +123,10 @@ shape = SubResource("RectangleShape2D_oftlh")
 
 [node name="GroBong" parent="Items" instance=ExtResource("9_pb7wt")]
 position = Vector2(153, 237)
-description = Array[String]([])
+description = Array[String](["Bonjour"])
+
+[node name="CollisionShape2D" parent="Items/GroBong" index="0"]
+shape = SubResource("RectangleShape2D_aw0ne")
 
 [node name="Sprite2D" parent="Items/GroBong" index="1"]
 texture = ExtResource("10_6v7s6")
@@ -122,6 +138,9 @@ shape = SubResource("RectangleShape2D_7cpln")
 position = Vector2(264, 363)
 description = Array[String]([])
 
+[node name="CollisionShape2D" parent="Items/GroBong2" index="0"]
+shape = SubResource("RectangleShape2D_2laci")
+
 [node name="Sprite2D" parent="Items/GroBong2" index="1"]
 texture = ExtResource("10_6v7s6")
 
@@ -132,52 +151,48 @@ shape = SubResource("RectangleShape2D_7cpln")
 position = Vector2(328, 235)
 description = Array[String]([])
 
+[node name="CollisionShape2D" parent="Items/GroBong3" index="0"]
+shape = SubResource("RectangleShape2D_0aexw")
+
 [node name="Sprite2D" parent="Items/GroBong3" index="1"]
 texture = ExtResource("10_6v7s6")
 
 [node name="CollisionShape2D" parent="Items/GroBong3/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_7cpln")
 
-[node name="Inventory" parent="." instance=ExtResource("8_trtwh")]
+[node name="Pnj" type="Node2D" parent="." groups=["Pnj"]]
 
-[node name="ItemList" parent="Inventory" index="0"]
-allow_reselect = true
-fixed_icon_size = Vector2i(64, 64)
+[node name="pnj_tmp" parent="Pnj" node_paths=PackedStringArray("questItem") instance=ExtResource("14_0ekb7")]
+position = Vector2(496, 104)
+questItem = [NodePath("../../Items/OFSI/Item_Temp")]
 
-[node name="Crafting" parent="." instance=ExtResource("9_6chti")]
-rotation = 1.5352339
+[node name="TimeLine" parent="Pnj/pnj_tmp/Dialogs" index="0"]
+dialog = Array[String](["oui oui"])
 
-[node name="craftMenu" parent="Crafting" index="0"]
-visible = false
-offset_left = 229.22714
-offset_top = -142.94022
-offset_right = 1261.2272
-offset_bottom = 112.059784
-rotation = -1.5476286
+[node name="TimeLine2" type="Node2D" parent="Pnj/pnj_tmp/Dialogs" index="1" groups=["Pnj"]]
+script = ExtResource("14_aw0ne")
+dialog = Array[String](["Merci
+"])
 
-[node name="Button" parent="Crafting" index="1"]
-offset_left = 528.4883
-offset_top = -1016.8526
-offset_right = 641.4883
-offset_bottom = -897.8526
-rotation = -1.5409222
+[node name="Node2D" parent="." instance=ExtResource("15_aw0ne")]
+process_mode = 3
 
-[node name="Recipe" parent="Crafting/RecipesList" index="0" node_paths=PackedStringArray("Item1", "Item2", "Item3", "Result") instance=ExtResource("11_yy1rr")]
-Item1 = NodePath("../../../Items/GroBong")
-Item2 = NodePath("../../../Items/GroBong2")
-Item3 = NodePath("../../../Items/GroBong3")
-Result = NodePath("../../../Items/OFSI/Item_Temp")
+[node name="Panel" parent="Node2D" index="1"]
+offset_left = -716.0
+offset_top = 484.0
+offset_right = -373.0
+offset_bottom = 948.0
 
-[node name="DialogueBox" type="Panel" parent="."]
+[node name="DialogueBox" type="Panel" parent="Node2D"]
 process_mode = 2
 visible = false
-offset_left = 2.0
-offset_top = 483.0
-offset_right = 848.0
-offset_bottom = 648.0
+offset_left = 8.0
+offset_top = 454.0
+offset_right = 854.0
+offset_bottom = 619.0
 script = ExtResource("12_yy1rr")
 
-[node name="Label" type="Label" parent="DialogueBox"]
+[node name="Label" type="Label" parent="Node2D/DialogueBox"]
 layout_mode = 0
 offset_right = 708.0
 offset_bottom = 163.0
@@ -186,7 +201,7 @@ autowrap_mode = 3
 justification_flags = 35
 clip_text = true
 
-[node name="Button" type="Button" parent="DialogueBox"]
+[node name="Button" type="Button" parent="Node2D/DialogueBox"]
 layout_mode = 0
 offset_left = 709.0
 offset_top = 18.0
@@ -194,41 +209,46 @@ offset_right = 845.0
 offset_bottom = 154.0
 icon = ExtResource("13_oftlh")
 
-[node name="Pnj" type="Node2D" parent="." groups=["Pnj"]]
+[node name="Inventory" parent="." instance=ExtResource("8_trtwh")]
 
-[node name="pnj_tmp" parent="Pnj" node_paths=PackedStringArray("questItem") instance=ExtResource("14_0ekb7")]
-position = Vector2(496, 104)
-questItem = [NodePath("../../Items/GroBong3"), NodePath("../../Items/OFSI/Item_Temp")]
+[node name="ItemList" parent="Inventory" index="0"]
+offset_top = 91.0
+allow_reselect = true
+fixed_icon_size = Vector2i(128, 128)
 
-[node name="TimeLine" parent="Pnj/pnj_tmp/Dialogs" index="0"]
-dialog = Array[String](["oui oui"])
+[node name="Crafting" parent="." instance=ExtResource("9_6chti")]
 
-[node name="TimeLine2" type="Node2D" parent="Pnj/pnj_tmp/Dialogs" index="1" groups=["Pnj"]]
-script = ExtResource("15_aw0ne")
-dialog = Array[String](["nono"])
+[node name="craftMenu" parent="Crafting" index="0"]
+visible = false
 
-[node name="TimeLine3" type="Node2D" parent="Pnj/pnj_tmp/Dialogs" index="2" groups=["Pnj"]]
-script = ExtResource("15_aw0ne")
-dialog = Array[String](["ouioui"])
+[node name="RecipesList" parent="Crafting" index="2"]
+visible = true
+
+[node name="Recipe" parent="Crafting/RecipesList" index="0" node_paths=PackedStringArray("Item1", "Item2", "Item3", "Result") instance=ExtResource("16_2laci")]
+Item1 = NodePath("../../../Items/GroBong")
+Item2 = NodePath("../../../Items/GroBong2")
+Item3 = NodePath("../../../Items/GroBong3")
+Result = NodePath("../../../Items/OFSI/Item_Temp")
 
 [connection signal="sendLastName" from="Interaction_MNG" to="player" method="_on_interaction_mng_send_last_name"]
-[connection signal="Dialogue" from="player" to="DialogueBox" method="writeDialogue"]
+[connection signal="Dialogue" from="player" to="Node2D/DialogueBox" method="writeDialogue"]
 [connection signal="storeInv" from="player" to="Inventory" method="storeItem"]
 [connection signal="body_entered" from="player/itemBox" to="player" method="_on_item_box_body_entered"]
 [connection signal="isClicked" from="Items/GroBong" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
 [connection signal="isClicked" from="Items/GroBong2" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
 [connection signal="isClicked" from="Items/GroBong3" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
-[connection signal="item_activated" from="Inventory/ItemList" to="Crafting/craftMenu" method="_on_item_list_item_selected"]
-[connection signal="item_selected" from="Inventory/ItemList" to="Interaction_MNG" method="_on_item_list_item_selected"]
-[connection signal="Crafted" from="Crafting/craftMenu" to="Inventory" method="_on_craft_menu_crafted"]
-[connection signal="gui_input" from="DialogueBox" to="DialogueBox" method="_on_gui_input"]
 [connection signal="isClicked" from="Pnj/pnj_tmp" to="Interaction_MNG" method="_on_item_temp_is_clicked"]
-[connection signal="timeLineAdvenced" from="Pnj/pnj_tmp" to="DialogueBox" method="writeDialogue"]
+[connection signal="timeLineAdvenced" from="Pnj/pnj_tmp" to="Node2D/DialogueBox" method="writeDialogue"]
+[connection signal="gui_input" from="Node2D/DialogueBox" to="Node2D/DialogueBox" method="_on_gui_input"]
+[connection signal="item_selected" from="Inventory/ItemList" to="Interaction_MNG" method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="Inventory/ItemList" to="Crafting/craftMenu" method="_on_item_list_item_selected"]
+[connection signal="Crafted" from="Crafting/craftMenu" to="Inventory" method="_on_craft_menu_crafted"]
 
 [editable path="Items/OFSI/Item_Temp"]
 [editable path="Items/GroBong"]
 [editable path="Items/GroBong2"]
 [editable path="Items/GroBong3"]
+[editable path="Pnj/pnj_tmp"]
+[editable path="Node2D"]
 [editable path="Inventory"]
 [editable path="Crafting"]
-[editable path="Pnj/pnj_tmp"]

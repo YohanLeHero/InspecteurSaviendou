@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://mvjt2u5x85da"]
+[gd_scene load_steps=2 format=3 uid="uid://mvjt2u5x85da"]
 
 [ext_resource type="Script" uid="uid://b34e8i2dgn6lq" path="res://Scripts/Item.gd" id="1_dddlk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrqau"]
-size = Vector2(38, 34)
 
 [node name="Item_Temp" type="StaticBody2D" groups=["Items"]]
 collision_layer = 2
@@ -13,7 +10,6 @@ script = ExtResource("1_dddlk")
 description = Array[String]([""])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lrqau")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.135, 2.135)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bb30uoia2lynx" path="res://Scripts/pnj_tmp.gd" id="1_c45fg"]
 [ext_resource type="Texture2D" uid="uid://dduryx5yyw5bi" path="res://asset/pnjAsset.png" id="2_xycbf"]
-[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scene/time_line.gd" id="3_xycbf"]
+[ext_resource type="Script" uid="uid://dorlxj1b6635t" path="res://Scripts/time_line.gd" id="3_xycbf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4as3"]
 radius = 71.34424

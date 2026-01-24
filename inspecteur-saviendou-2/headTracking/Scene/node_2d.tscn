@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgxiuywgbrut2"]
+
+[ext_resource type="Script" uid="uid://bymw78wrpdb5t" path="res://headTracking/Script/head_tracking_manager.gd" id="1_eufn3"]
+[ext_resource type="Script" uid="uid://brw23quc7pw8j" path="res://headTracking/Script/menu_panel.gd" id="2_cd8bm"]
+[ext_resource type="Texture2D" uid="uid://bsuxc70dvjoyg" path="res://headTracking/Asset/souris.svg" id="3_rd0ta"]
+[ext_resource type="Texture2D" uid="uid://810m56llst3p" path="res://headTracking/Asset/manette.svg" id="4_77btt"]
+[ext_resource type="Texture2D" uid="uid://bdk6igvv6bqtg" path="res://headTracking/Asset/tete.svg" id="5_gn1ci"]
+[ext_resource type="Texture2D" uid="uid://mdqh178wvexm" path="res://headTracking/Asset/disketsvg.svg" id="6_4asif"]
+[ext_resource type="Texture2D" uid="uid://c70vjpkuckqay" path="res://headTracking/Asset/loadsave.svg" id="7_xa2f3"]
+[ext_resource type="Texture2D" uid="uid://db62yvt8xw3c4" path="res://headTracking/Asset/poubelle.svg" id="8_b4pas"]
+[ext_resource type="Texture2D" uid="uid://rprl7x1oimdm" path="res://headTracking/Asset/off.svg" id="9_ub8w0"]
+[ext_resource type="Script" uid="uid://dopsq2m25apo" path="res://headTracking/Script/Quitter.gd" id="10_rqitt"]
+[ext_resource type="Texture2D" uid="uid://ds30swneuxs2j" path="res://headTracking/Asset/full screen.svg" id="11_yyoe5"]
+[ext_resource type="Script" uid="uid://cmlj4v1oxco65" path="res://headTracking/Script/fullscreen.gd" id="12_hdfjr"]
+[ext_resource type="Texture2D" uid="uid://cruxvyh2ropu4" path="res://headTracking/Asset/cogweel.svg" id="13_im84m"]
+[ext_resource type="Script" uid="uid://bw4do0vprjv4b" path="res://headTracking/Script/button.gd" id="14_hohp5"]
+[ext_resource type="Texture2D" uid="uid://botlgpsksk5bi" path="res://headTracking/Asset/ImageToStl.com_cross.svg" id="15_d0gsa"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-6, 29)
+script = ExtResource("1_eufn3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 638.0
+offset_top = -3.0
+offset_right = 1149.0
+offset_bottom = 653.0
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 37.0
+offset_right = 375.0
+offset_bottom = 501.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("2_cd8bm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Souris" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+souris
+"
+icon = ExtResource("3_rd0ta")
+
+[node name="Manette" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+manette"
+icon = ExtResource("4_77btt")
+
+[node name="HeadTracking" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+headtracking"
+icon = ExtResource("5_gn1ci")
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+ratio = 1.3165
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BottomButtons" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "save set."
+icon = ExtResource("6_4asif")
+
+[node name="Load" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "load set."
+icon = ExtResource("7_xa2f3")
+
+[node name="Reset" type="Button" parent="Panel/VBoxContainer/BottomButtons"]
+layout_mode = 2
+text = "reset set."
+icon = ExtResource("8_b4pas")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 357.0
+offset_right = 120.0
+offset_bottom = 576.0
+
+[node name="Quitter" type="Button" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "
+Quitter
+
+"
+icon = ExtResource("9_ub8w0")
+script = ExtResource("10_rqitt")
+
+[node name="Fullscreen" type="Button" parent="."]
+offset_left = 83.0
+offset_top = 700.0
+offset_right = 198.0
+offset_bottom = 800.0
+text = "
+Fullscreen
+
+"
+icon = ExtResource("11_yyoe5")
+script = ExtResource("12_hdfjr")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 533.0
+offset_right = 201.0
+offset_bottom = 619.0
+button_mask = 7
+text = "paramettre"
+icon = ExtResource("13_im84m")
+script = ExtResource("14_hohp5")
+
+[node name="TrackerRect" type="Sprite2D" parent="."]
+position = Vector2(496, 307)
+texture = ExtResource("15_d0gsa")

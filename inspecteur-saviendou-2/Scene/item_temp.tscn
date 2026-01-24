@@ -19,6 +19,8 @@ scale = Vector2(2.135, 2.135)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 debug_color = Color(0.7264744, 0.35765067, 0.80079156, 0.41960785)
 
+[node name="interaction" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

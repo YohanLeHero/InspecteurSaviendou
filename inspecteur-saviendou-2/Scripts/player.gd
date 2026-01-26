@@ -35,11 +35,16 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		stop_footsteps()
+		$"Sprite2D".play("idle")
 		return
 	var current_agent_position: Vector2 = global_position
+	var direction = global_position.direction_to(nav_agent.get_next_path_position())
 	self.velocity = current_agent_position.direction_to(nav_agent.get_next_path_position()).normalized() * speed 
 	move_and_slide()
 	start_footsteps()
+	$"Sprite2D".play("walk")
+	if direction.x != 0:
+		$"Sprite2D".flip_h = direction.x < 0
 
 # --------------------
 # FOOTSTEPS
@@ -72,6 +77,7 @@ func makePath(clickPos) -> void:
 
 
 func _on_item_box_body_entered(body: Node2D) -> void:
+	$"Sprite2D".play("idle")
 	if body.is_in_group("Items") and node_clicked == body: 
 		storeInv.emit(node_clicked)
 		Dialogue.emit(body.get_description())

@@ -1,3 +1,5 @@
+AnimatedSprite2D
+VideoStreamPlayer
 Sprite2D
 Node
 Node2D
@@ -11,4 +13,3 @@ FoldableContainer      - Matches the "collapsible" keyword.
 CollisionShape2D
 Area2D
 ItemList
-ScrollContainer

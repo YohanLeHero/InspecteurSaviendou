@@ -10,5 +10,6 @@ func _on_body_entered(body: Node2D):
 	if already_played:
 		return
 	print("BODY ENTERED:", body.name)
-	audio_player.play()
-	already_played = true
+	if body == $"../player":
+		audio_player.play()
+		already_played = true

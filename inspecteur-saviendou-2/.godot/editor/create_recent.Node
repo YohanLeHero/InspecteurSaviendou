@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 ColorRect
 AnimatedSprite2D
 VideoStreamPlayer
@@ -10,6 +12,3 @@ AspectRatioContainer
 HSlider
 TextureRect
 HBoxContainer
-FoldableContainer      - Matches the "collapsible" keyword.
-CollisionShape2D
-Area2D

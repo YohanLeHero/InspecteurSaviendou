@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b34e8i2dgn6lq" path="res://Scripts/Item.gd" id="1_dddlk"]
 
-[node name="Item_Temp" type="StaticBody2D" groups=["Items"]]
+[node name="Item_Temp" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 3
 input_pickable = true

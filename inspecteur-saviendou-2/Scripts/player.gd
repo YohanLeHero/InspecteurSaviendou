@@ -23,11 +23,10 @@ func _ready() -> void:
 	randomize()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Click"):
 		#makePath(to_local(cursor.tracker_rect.position)
 		#makePath($"../Node2D".get_pos())
-		
 		node_clicked = null
 		print(get_local_mouse_position())
 		makePath(to_local($"../Node2D".get_pos()))
@@ -71,9 +70,8 @@ func _play_footstep() -> void:
 # --------------------
 
 func makePath(clickPos) -> void:
+	print(node_clicked) 
 	nav_agent.set_target_position(to_global(clickPos))
-	
-	
 
 
 func _on_item_box_body_entered(body: Node2D) -> void:

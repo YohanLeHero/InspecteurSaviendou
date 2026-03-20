@@ -34,12 +34,13 @@ func _on_item_list_item_selected(index: int) -> void:
 func craft():
 	var recipes = %"RecipesList".get_children()
 	for i in range(recipes.size()):
-		if recipes[i].getItem1() == craftSlot[0] or recipes[i].getItem1() == craftSlot[1] or recipes[i].getItem1() == craftSlot[2]:
-			if recipes[i].getItem2() == craftSlot[0] or recipes[i].getItem2() == craftSlot[1] or recipes[i].getItem2() == craftSlot[2]:
-				if recipes[i].getItem3() == craftSlot[0] or recipes[i].getItem3() == craftSlot[1] or recipes[i].getItem3() == craftSlot[2]:
-					craftSlot[3] = recipes[i].getResult()
-					self.get_node("Result").set_button_icon(recipes[i].getResult().get_texture())
-					return
+		if craftSlot[i] != null:
+			if recipes[i].getItem1() == craftSlot[0].name or recipes[i].getItem1() == craftSlot[1] or recipes[i].getItem1() == craftSlot[2].name:
+					if recipes[i].getItem2() == craftSlot[0].name or recipes[i].getItem2() == craftSlot[1].name or recipes[i].getItem2() == craftSlot[2].name:
+							if recipes[i].getItem3() == craftSlot[0].name or recipes[i].getItem3() == craftSlot[1].name or recipes[i].getItem3() == craftSlot[2].name:
+								craftSlot[3] = recipes[i].getResult()
+								self.get_node("Result").set_button_icon(recipes[i].getResult().get_texture())
+								return
 		craftSlot[3] = null
 		self.get_node("Result").set_button_icon(null)
 
@@ -73,3 +74,4 @@ func _on_result_pressed() -> void:
 		self.get_node("Result").set_button_icon(null)
 		for i in range(craftSlot.size()):
 			craftSlot[i] = null
+			

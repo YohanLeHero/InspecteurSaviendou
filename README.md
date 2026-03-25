@@ -1,3 +1,9 @@
-TheFantasio974 : Saalut!
+Groupe :
+	Mathias Bonnefoux
+	Lucas Colombet
+	Mael Mace
+	Yohan Gronchi
 
-gurt : yo
+Git : https://github.com/YohanLeHero/InspecteurSaviendou
+
+Controle : Point & Click

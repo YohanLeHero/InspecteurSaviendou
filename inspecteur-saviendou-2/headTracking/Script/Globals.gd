@@ -192,6 +192,14 @@ func reset_to_default():
 	controller_deadzone = 0.2 
 	mouse_speed = 1.0 
 	mouse_sensitivity = 1.0 
-	current_mode = 0 
+	current_mode = 2
 	margin = 50 
 	print("Paramètres réinitialisés aux valeurs par défaut")
+
+
+func start_with_mouse(): 
+	# Reset all variables to default values 
+	 
+	current_mode = 2
+	
+	print("start_with_mouse")

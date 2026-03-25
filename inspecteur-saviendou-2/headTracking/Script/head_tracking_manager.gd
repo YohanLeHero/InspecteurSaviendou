@@ -16,9 +16,11 @@ var udp := PacketPeerUDP.new()
 func _ready():
 	# Initialiser Globals
 	init_globals()
+	Globals.start_with_mouse()
 	# Empêche la souris de sortir de la fenêtre
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	
 
 
 

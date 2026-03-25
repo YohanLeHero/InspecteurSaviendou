@@ -1,4 +1,6 @@
-ColorRect
+AspectRatioContainer
+PanelContainer
+Label
 AnimatedSprite2D
 VideoStreamPlayer
 Sprite2D
@@ -6,10 +8,7 @@ Node
 Node2D
 AudioStreamPlayer
 Button
-AspectRatioContainer
 HSlider
 TextureRect
 HBoxContainer
 FoldableContainer      - Matches the "collapsible" keyword.
-CollisionShape2D
-Area2D

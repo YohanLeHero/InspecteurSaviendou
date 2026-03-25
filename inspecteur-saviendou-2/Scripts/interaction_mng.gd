@@ -31,3 +31,4 @@ func winCon(item : Node2D):
 		get_tree().paused = true
 		await $"../VideoStreamPlayer".finished
 		get_tree().paused = false
+		get_tree().quit()

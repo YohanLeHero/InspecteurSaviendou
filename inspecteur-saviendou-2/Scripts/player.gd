@@ -23,7 +23,7 @@ func _ready() -> void:
 	randomize()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Click"):
 		#makePath(to_local(cursor.tracker_rect.position)
 		#makePath($"../Node2D".get_pos())
@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		stop_footsteps()
 		$"Sprite2D".play("idle")
 		return
+	
 	var current_agent_position: Vector2 = global_position
 	var direction = global_position.direction_to(nav_agent.get_next_path_position())
 	self.velocity = current_agent_position.direction_to(nav_agent.get_next_path_position()).normalized() * speed 
@@ -45,6 +46,12 @@ func _physics_process(delta: float) -> void:
 	$"Sprite2D".play("walk")
 	if direction.x != 0:
 		$"Sprite2D".flip_h = direction.x < 0
+	if (nav_agent.distance_to_target() < 20):
+		stop_footsteps()
+		$"Sprite2D".play("idle")
+		nav_agent.target_reached
+		direction = 1;
+		return
 
 # --------------------
 # FOOTSTEPS

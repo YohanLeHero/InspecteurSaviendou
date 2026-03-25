@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://diqmiihreyy7y"]
+[gd_scene load_steps=11 format=3 uid="uid://diqmiihreyy7y"]
 
 [ext_resource type="Script" uid="uid://bnbkbm5hlqvor" path="res://Scripts/mainmenu.gd" id="1_vowho"]
-[ext_resource type="Texture2D" uid="uid://cgaxb3x7dt1mf" path="res://asset/placeholder-1-1.png" id="2_rv1bs"]
+[ext_resource type="Texture2D" uid="uid://d15bcbrwcw05t" path="res://asset/menu.jpg" id="2_rv1bs"]
 [ext_resource type="PackedScene" uid="uid://dgxiuywgbrut2" path="res://headTracking/Scene/node_2d.tscn" id="3_rv1bs"]
+[ext_resource type="Texture2D" uid="uid://bpic0ogk6qesk" path="res://asset/StartButton.png" id="3_tfeq1"]
+[ext_resource type="Texture2D" uid="uid://egbhcl2xigyu" path="res://asset/ExitButton.png" id="4_tafl8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2nv2"]
 texture = ExtResource("2_rv1bs")
@@ -23,6 +25,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmhrf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tfeq1"]
 
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
@@ -49,10 +53,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -404.5
-offset_top = -87.0
-offset_right = 404.5
-offset_bottom = 233.0
+offset_left = -391.5
+offset_top = -145.0
+offset_right = 150.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 26
@@ -70,9 +74,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_loy4s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_loy4s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cmhrf")
-text = "start game"
+icon = ExtResource("3_tfeq1")
+flat = true
+expand_icon = true
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
+material = SubResource("CanvasItemMaterial_tfeq1")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -85,7 +92,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_loy4s")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_loy4s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cmhrf")
-text = "exit"
+icon = ExtResource("4_tafl8")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -94,10 +105,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -236.5
-offset_top = -252.0
-offset_right = 236.5
-offset_bottom = -141.0
+offset_left = -353.0
+offset_top = -266.0
+offset_right = 120.0
+offset_bottom = -147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
@@ -106,6 +117,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Node2D" parent="." instance=ExtResource("3_rv1bs")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 989.0
+offset_top = 518.0
+offset_right = 1187.0
+offset_bottom = 660.0
+
+[node name="Label2" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "appuyer sur M
+ pour changer 
+de mode"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]

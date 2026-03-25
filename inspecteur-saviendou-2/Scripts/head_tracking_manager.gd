@@ -44,7 +44,7 @@ var last_controller_click = 0.0
 var last_mouse_click = 0.0
 
 # Modes de contrôle (0 = head tracking, 1 = manette, 2 = souris)
-var current_mode = 0
+var current_mode = 2
 var controller_speed = 500.0
 var controller_deadzone = 0.2
 var mouse_speed = 1.0
